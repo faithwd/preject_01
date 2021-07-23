@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="手机">
+    <script>
+        // 1.获取元素
+        var phone = document.querySelector('input');
+        // 2.注册事件 获得焦点事件 onfocus
+        phone.onfocus = function() {
+                // 判断焦点是否为默认值
+                if (phone.value === '手机') {
+                    phone.value = '';
+                }
+                // 获得焦点文本框字体颜色变黑
+                phone.style.color = '#333';
+            }
+            // 失去焦点事件 onblur
+        phone.onblur = function() {
+            if (phone.value === '') {
+                phone.value = '手机';
+            }
+            phone.style.color = '#999';
+        }
+    </script>
+
+</body>
+
+</html>

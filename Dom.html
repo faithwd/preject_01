@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // Dom(文档对象模型)，是W3C组织推荐的处理可扩展标记语言的标准编程接口
+        // 可以通过DOM接口改变网页的内容，结构和样式
+        // DOM树
+        // 文档：一个页面就是一个文档，DOM中使用document表示
+        // 元素：页面中所有标签都叫元素，DOM中使用element表示
+        // 节点：网页中的所有内容都是节点（标签，属性，文本，注释等），DOM中使用node表示。
+        // 获取元素的方法：
+        //     (1)根据ID获取 getElementById()
+        //     (2)根据标签名获取 getElementsByTagName()
+        //     (3)根据类名获取元素 getElementByClassName()
+    </script>
+</head>
+
+<body>
+    <div id="time"></div>
+    <ul>
+        <li>知否知否，等你好久</li>
+        <li>知否知否，等你好久</li>
+        <li>知否知否，等你好久</li>
+        <li>知否知否，等你好久</li>
+        <li>知否知否，等你好久</li>
+    </ul>
+    <ul id="nav">
+        <li>知否知否，</li>
+        <li>知否知否，</li>
+        <li>知否知否，</li>
+        <li>知否知否，</li>
+        <li>知否知否，</li>
+    </ul>
+    <div class="box">盒子</div>
+    <script>
+        // 1.文档页面从上往下加载，所以先得有标签，因此script写道标签下面
+        // 2.get获取element元素by通过驼峰命名法
+        // 3.参数id是大小写敏感的字符串
+        // 4.返回的是一个元素对象
+        var timer = document.getElementById('time');
+        console.log(timer);
+        console.log(typeof timer);
+        console.dir(timer); //打印返回的元素对象，更好的查看里面的属性和方法
+
+        // 1.返回的是获取过来元素对象的集合，以伪数组的形式存储
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[0]);
+
+        // 2.想要依次打印元素对象，采取遍历方式
+        for (var i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+
+        }
+        // 3.element.getElementsByTagName()可以得到这个元素里面的某些标签
+        var nav = document.getElementById('nav');
+        var navLis = nav.getElementsByTagName('li');
+        console.log(navLis);
+
+        // H5新增的写法
+        // 根据类名获取某些元素集合
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs);
+
+        // 返回指定选择器的第一个元素对象 document.querySelector() 里面选择器需要符号
+        var first = document.querySelector('.box');
+        console.log(first);
+
+        // 返回指定选择器的所有元素对象集合 document.querySelectorAll()
+        var second = document.querySelectorAll('li');
+        console.log(second);
+    </script>
+</body>
+
+</html>
